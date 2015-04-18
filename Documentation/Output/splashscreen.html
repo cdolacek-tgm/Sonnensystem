@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Splashscreen &mdash; Solarsystem by Özer&amp;Dolacek 29032015 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '29032015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Solarsystem by Özer&amp;Dolacek 29032015 documentation" href="index.html" />
+    <link rel="next" title="Solarsystem" href="solarsystem.html" />
+    <link rel="prev" title="Starter" href="starter.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="solarsystem.html" title="Solarsystem"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="starter.html" title="Starter"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="splashscreen">
+<h1>Splashscreen<a class="headerlink" href="#splashscreen" title="Permalink to this headline">¶</a></h1>
+<p>Die Klasse Splashscreen ist quasi eine Einführung in unser Solarsystem.
+Dem User werden 3 Menüpunkte angezeigt:</p>
+<ol class="arabic simple">
+<li>Solarsystem</li>
+<li>Steuerung</li>
+<li>Beenden</li>
+</ol>
+<div class="section" id="dokumentation">
+<h2>Dokumentation<a class="headerlink" href="#dokumentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="splashscreen.Splashscreen">
+<em class="property">class </em><tt class="descclassname">splashscreen.</tt><tt class="descname">Splashscreen</tt><a class="reference internal" href="_modules/splashscreen.html#Splashscreen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="splashscreen.Splashscreen.button">
+<tt class="descname">button</tt><big>(</big><em>text</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>inactive</em>, <em>active</em>, <em>action=None</em><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Methode erstellt uns Menüpunkte im Splashscreen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> &#8211; Buttonnamen als String</li>
+<li><strong>x</strong> &#8211; x-Koordinate für das Rechteck</li>
+<li><strong>y</strong> &#8211; y-Koordinate für das Rechteck</li>
+<li><strong>w</strong> &#8211; Breite des Rechtecks</li>
+<li><strong>h</strong> &#8211; Höhe des Rechtecks</li>
+<li><strong>inactive</strong> &#8211; Farbe für inactive angeben</li>
+<li><strong>active</strong> &#8211; Farbe für active angeben</li>
+<li><strong>action</strong> &#8211; Aufruf einer Methode</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="splashscreen.Splashscreen.main">
+<tt class="descname">main</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Führt den Splashscreen aus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="splashscreen.Splashscreen.solar_controls">
+<tt class="descname">solar_controls</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.solar_controls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.solar_controls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erstellt eine Anzeige mit der Benutzersteuerung unseres Solarsystems
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="splashscreen.Splashscreen.solar_splashscreen">
+<tt class="descname">solar_splashscreen</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.solar_splashscreen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.solar_splashscreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solarsystem Splashscreen</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="splashscreen.Splashscreen.solar_system">
+<tt class="descname">solar_system</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.solar_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.solar_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>Schließt als erstes das Menü-Fenster und ruft anschließend Solarsystem auf</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="splashscreen.Splashscreen.text_objects">
+<tt class="descname">text_objects</tt><big>(</big><em>text</em>, <em>font</em>, <em>color</em><big>)</big><a class="reference internal" href="_modules/splashscreen.html#Splashscreen.text_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#splashscreen.Splashscreen.text_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Methode rendert uns einen String, um es in einem PyGame-Element einbetten zu können</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> &#8211; Buttonnamen als String</li>
+<li><strong>font</strong> &#8211; Schriftart</li>
+<li><strong>color</strong> &#8211; Farbe</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Splashscreen</a><ul>
+<li><a class="reference internal" href="#dokumentation">Dokumentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="starter.html"
+                        title="previous chapter">Starter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="solarsystem.html"
+                        title="next chapter">Solarsystem</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/splashscreen.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="solarsystem.html" title="Solarsystem"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="starter.html" title="Starter"
+             >previous</a> |</li>
+        <li><a href="index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, coezer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

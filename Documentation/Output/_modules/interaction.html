@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>interaction &mdash; Solarsystem by Özer&amp;Dolacek 29032015 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '29032015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Solarsystem by Özer&amp;Dolacek 29032015 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for interaction</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Cafer Özer&#39;</span>
+
+<span class="kn">from</span> <span class="nn">OpenGL.GLUT.special</span> <span class="kn">import</span> <span class="n">glutKeyboardFunc</span>
+<span class="kn">from</span> <span class="nn">PIL.Image</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PIL.OleFileIO</span> <span class="kn">import</span> <span class="n">key</span>
+<span class="kn">from</span> <span class="nn">planet</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">textur</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">licht</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<div class="viewcode-block" id="Interaction"><a class="viewcode-back" href="../interaction.html#interaction.Interaction">[docs]</a><span class="k">class</span> <span class="nc">Interaction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Konstruktor der Klasse Interaction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschwl</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+
+<div class="viewcode-block" id="Interaction.keyPressed"><a class="viewcode-back" href="../interaction.html#interaction.Interaction.keyPressed">[docs]</a>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Methode für die Tastatureneingabe</span>
+
+<span class="sd">        :param key: Taste</span>
+<span class="sd">        :param x:</span>
+<span class="sd">        :param y:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#print (&quot;Taste wurde gedrueckt: %c \n&quot;, key);</span>
+
+        <span class="c">#Kamera ändern</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bol</span><span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stateC</span><span class="o">=</span><span class="bp">True</span>
+
+        <span class="c">#Geschwindigkeit schneller</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;d&#39;</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">False</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">+</span> <span class="mf">0.005</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">+</span> <span class="mf">0.0005</span>
+
+        <span class="c">#geschwindigkeit langsamer</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">False</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">-</span> <span class="mf">0.005</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">-</span> <span class="mf">0.0005</span>
+
+        <span class="c">#Animation stoppen</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;s&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Interaction.mouse"><a class="viewcode-back" href="../interaction.html#interaction.Interaction.mouse">[docs]</a>    <span class="k">def</span> <span class="nf">mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Methode für die Mauseingabe</span>
+
+<span class="sd">        :param button: Maustaste</span>
+<span class="sd">        :param state: Status</span>
+<span class="sd">        :param x:</span>
+<span class="sd">        :param y:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#Licht einschalten</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#Licht ausschalten</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c">#Textur einschalten</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#Textur ausschalten</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">True</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, coezer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

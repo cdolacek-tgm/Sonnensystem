@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>solarsystem &mdash; Solarsystem by Özer&amp;Dolacek 29032015 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '29032015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Solarsystem by Özer&amp;Dolacek 29032015 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for solarsystem</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">interaction</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&quot;Carina Dolacek&quot;</span>
+
+<span class="kn">from</span> <span class="nn">planet</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">textur</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">licht</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">interaction</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="Solarsystem"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem">[docs]</a><span class="k">class</span> <span class="nc">Solarsystem</span><span class="p">(</span><span class="n">Planet</span><span class="p">,</span> <span class="n">Textur</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialisierung der Attribute und Objekte</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erde</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mond</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">light</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschwp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geschwl</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="n">Planet</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Textur</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Licht</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c">#Interaction.__init__(self)</span>
+
+<div class="viewcode-block" id="Solarsystem.InitGL"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.InitGL">[docs]</a>    <span class="k">def</span> <span class="nf">InitGL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Width</span><span class="p">,</span> <span class="n">Height</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Einmalige Einstellungen der Anzeige</span>
+
+<span class="sd">        :param Width: Breite des Fensters</span>
+<span class="sd">        :param Height: Höhe des Fensters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/sun.gif&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erde</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/erde.jpg&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mond</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/mond.jpg&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rosa</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/rosa.jpg&quot;</span><span class="p">)</span>
+
+        <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="mi">640</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
+        <span class="n">gluLookAt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+
+        <span class="n">Licht</span><span class="o">.</span><span class="n">light</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Solarsystem.refresh"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Die Methode übernimmt die Mauseingabe für den Perspektivenwechsel</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="mi">640</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="mi">480</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">gluLookAt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+             <span class="n">gluLookAt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Solarsystem.showPlanets"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.showPlanets">[docs]</a>    <span class="k">def</span> <span class="nf">showPlanets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Die Methode gibt alle Planeten aus und ruft die refresh Methode auf</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+
+        <span class="n">glLoadIdentity</span><span class="p">()</span>  <span class="c"># reset position</span>
+
+        <span class="n">Solarsystem</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">sonne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.01</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.03</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">erde</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mond</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">venus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rosa</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschwl</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">sonne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.01</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.03</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">erde</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mond</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">venus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rosa</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">sonne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">erde</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mond</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">venus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rosa</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">sonne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sonne</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">erde</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mond</span><span class="p">)</span>
+            <span class="n">Planet</span><span class="o">.</span><span class="n">venus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rosa</span><span class="p">)</span>
+
+        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="n">glutSwapBuffers</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Solarsystem.keyPressed"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.keyPressed">[docs]</a>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Methode für die Tastatureneingabe</span>
+
+<span class="sd">        :param key: Taste</span>
+<span class="sd">        :param x:</span>
+<span class="sd">        :param y:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#print (&quot;Taste wurde gedrueckt: %c \n&quot;, key);</span>
+
+        <span class="c">#Kamera ändern</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bol</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stateC</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c">#Geschwindigkeit schneller</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;d&#39;</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">False</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">+</span> <span class="mf">0.002</span>
+
+        <span class="c">#Geschwindigkeit langsamer</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">False</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geschws</span> <span class="o">-</span> <span class="mf">0.002</span>
+
+        <span class="c">#Animation stoppen</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;s&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschw</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">geschL</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#Solarsystem schließen</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;q&#39;</span><span class="p">:</span>
+            <span class="n">glutDestroyWindow</span><span class="p">(</span><span class="n">glutGetWindow</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="Solarsystem.mouse"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.mouse">[docs]</a>    <span class="k">def</span> <span class="nf">mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Methode für die Mauseingabe</span>
+
+<span class="sd">        :param button: Maustaste</span>
+<span class="sd">        :param state: Status</span>
+<span class="sd">        :param x: x-Koordinate</span>
+<span class="sd">        :param y: y-Koordinate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#Licht einschalten</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#Licht ausschalten</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_LEFT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateL</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c">#Textur einschalten</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#Textur ausschalten</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span> <span class="o">==</span> <span class="n">GLUT_RIGHT_BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">GLUT_DOWN</span><span class="p">:</span>
+                    <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">stateT</span> <span class="o">=</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="Solarsystem.main"><a class="viewcode-back" href="../solarsystem.html#solarsystem.Solarsystem.main">[docs]</a>    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Übergibt den Methoden alle Parameter zum Aufruf</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">glutInit</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+        <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_RGBA</span> <span class="o">|</span> <span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_DEPTH</span><span class="p">)</span>
+        <span class="n">glutInitWindowSize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">glutCreateWindow</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Solarsystem by OEZER &amp; DOLACEK | Press q to quit the application&#39;</span><span class="p">)</span>
+
+        <span class="n">glutIdleFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showPlanets</span><span class="p">)</span>
+        <span class="n">glutKeyboardFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">)</span>
+        <span class="n">glutMouseFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mouse</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">InitGL</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+        <span class="n">glutMainLoop</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, coezer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>test_planet &mdash; Solarsystem by Özer&amp;Dolacek 29032015 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '29032015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Solarsystem by Özer&amp;Dolacek 29032015 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for test_planet</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">planet</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">textur</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Cafer Özer&#39;</span>
+
+<div class="viewcode-block" id="TestPlanet"><a class="viewcode-back" href="../test_planet.html#test_planet.TestPlanet">[docs]</a><span class="k">class</span> <span class="nc">TestPlanet</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestPlanet.test_sonne"><a class="viewcode-back" href="../test_planet.html#test_planet.TestPlanet.test_sonne">[docs]</a>    <span class="k">def</span> <span class="nf">test_sonne</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Überprüft die Eingaben --&gt; Datentypen</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">test</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">()</span>
+        <span class="n">glutInit</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">glutCreateWindow</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Testing&#39;</span><span class="p">)</span>
+        <span class="n">sonne</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/sun.gif&quot;</span><span class="p">)</span>
+        <span class="c">#Parameters like this: Planet.sonne(self, 0.2, 0.0, 0.0, 0.0, 0.01 + self.geschws, self.sonne)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">test</span><span class="o">.</span><span class="n">sonne</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">sonne</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="TestPlanet.test_erde_mond"><a class="viewcode-back" href="../test_planet.html#test_planet.TestPlanet.test_erde_mond">[docs]</a>    <span class="k">def</span> <span class="nf">test_erde_mond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Überprüft die Eingaben --&gt; Datentypen</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">test</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">()</span>
+        <span class="n">glutInit</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">glutCreateWindow</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Testing&#39;</span><span class="p">)</span>
+        <span class="n">erde</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/erde.jpg&quot;</span><span class="p">)</span>
+        <span class="c">#Parameters like this: Planet.erde_mond(self, 0.1, 0.8, 0.0, 0.0, 0.03 + self.geschws, self.erde)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">test</span><span class="o">.</span><span class="n">erde_mond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">erde</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="TestPlanet.test_venus"><a class="viewcode-back" href="../test_planet.html#test_planet.TestPlanet.test_venus">[docs]</a>    <span class="k">def</span> <span class="nf">test_venus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Überprüft die Eingaben --&gt; Datentypen</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">test</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">()</span>
+        <span class="n">glutInit</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="n">glutCreateWindow</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Testing&#39;</span><span class="p">)</span>
+        <span class="n">venus</span> <span class="o">=</span> <span class="n">Textur</span><span class="o">.</span><span class="n">LoadTextures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Resources/textures/rosa.jpg&quot;</span><span class="p">)</span>
+        <span class="c">#Parameters like this: Planet.venus(self, 0.1, 1.5, 0.0, 0.5, 0.02 + self.geschws, self.rosa)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">test</span><span class="o">.</span><span class="n">venus</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">venus</span><span class="p">))</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, coezer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

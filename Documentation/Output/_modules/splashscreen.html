@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>splashscreen &mdash; Solarsystem by Özer&amp;Dolacek 29032015 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '29032015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Solarsystem by Özer&amp;Dolacek 29032015 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for splashscreen</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Cafer Özer&#39;</span>
+
+<span class="kn">import</span> <span class="nn">pygame</span>
+
+<span class="kn">from</span> <span class="nn">solarsystem</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="Splashscreen"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen">[docs]</a><span class="k">class</span> <span class="nc">Splashscreen</span><span class="p">():</span>
+    <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+    <span class="c">#Farben definieren</span>
+    <span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">black</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="p">(</span><span class="mi">190</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">190</span><span class="p">)</span>
+    <span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c">#Hintergrund definieren</span>
+    <span class="c">#bg = pygame.image.load(&quot;Resources/bg/bg.jpg&quot;)</span>
+    <span class="c">#controls = pygame.image.load(&quot;Resources/bg/controls.jpg&quot;)</span>
+
+    <span class="c">#Fenstergröße definieren</span>
+    <span class="n">display_width</span> <span class="o">=</span> <span class="mi">800</span>
+    <span class="n">display_height</span> <span class="o">=</span> <span class="mi">600</span>
+
+    <span class="n">solarDisplay</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="n">display_width</span><span class="p">,</span> <span class="n">display_height</span><span class="p">))</span>
+    <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s">&quot;Solarsystem by OEZER &amp; DOLACEK&quot;</span><span class="p">)</span>
+
+    <span class="c">#icon = pygame.image.load(&quot;Resources/icon.png&quot;)</span>
+    <span class="c">#pygame.display.set_icon(icon)</span>
+
+    <span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+
+    <span class="n">smallfont</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">(</span><span class="s">&quot;cambria&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Splashscreen.text_objects"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.text_objects">[docs]</a>    <span class="k">def</span> <span class="nf">text_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Methode rendert uns einen String, um es in einem PyGame-Element einbetten zu können</span>
+
+<span class="sd">        :param text: Buttonnamen als String</span>
+<span class="sd">        :param font: Schriftart</span>
+<span class="sd">        :param color: Farbe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">textSurface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">textSurface</span><span class="p">,</span> <span class="n">textSurface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Eingaben überprüfen&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Splashscreen.button"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.button">[docs]</a>    <span class="k">def</span> <span class="nf">button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">inactive</span><span class="p">,</span> <span class="n">active</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Methode erstellt uns Menüpunkte im Splashscreen</span>
+
+<span class="sd">        :param text: Buttonnamen als String</span>
+<span class="sd">        :param x: x-Koordinate für das Rechteck</span>
+<span class="sd">        :param y: y-Koordinate für das Rechteck</span>
+<span class="sd">        :param w: Breite des Rechtecks</span>
+<span class="sd">        :param h: Höhe des Rechtecks</span>
+<span class="sd">        :param inactive: Farbe für inactive angeben</span>
+<span class="sd">        :param active: Farbe für active angeben</span>
+<span class="sd">        :param action: Aufruf einer Methode</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mouse</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
+
+        <span class="n">click</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">get_pressed</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">mouse</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">mouse</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+                <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">solarDisplay</span><span class="p">,</span> <span class="n">active</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">click</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">action</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">action</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">solarDisplay</span><span class="p">,</span> <span class="n">inactive</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+
+            <span class="n">textSurf</span><span class="p">,</span> <span class="n">textRect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_objects</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">smallfont</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">black</span><span class="p">)</span>
+            <span class="n">textRect</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">w</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)),</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">solarDisplay</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">textSurf</span><span class="p">,</span> <span class="n">textRect</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Eingaben überprüfen&quot;</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Splashscreen.solar_splashscreen"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.solar_splashscreen">[docs]</a>    <span class="k">def</span> <span class="nf">solar_splashscreen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Solarsystem Splashscreen</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+                    <span class="n">quit</span><span class="p">()</span>
+
+                    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_q</span><span class="p">:</span>
+                        <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+                        <span class="n">quit</span><span class="p">()</span>
+
+            <span class="c">#self.solarDisplay.blit(self.bg, [0, 0])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s">&quot;Solar&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">green</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solar_system</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s">&quot;Controls&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">310</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">white</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solar_controls</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s">&quot;Quit&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">quit</span><span class="p">)</span>
+
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Splashscreen.solar_controls"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.solar_controls">[docs]</a>    <span class="k">def</span> <span class="nf">solar_controls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Erstellt eine Anzeige mit der Benutzersteuerung unseres Solarsystems</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+                    <span class="n">quit</span><span class="p">()</span>
+
+            <span class="c">#self.solarDisplay.blit(self.controls, [0, 0])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s">&quot;Back to Menu&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">white</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solar_splashscreen</span><span class="p">)</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Splashscreen.solar_system"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.solar_system">[docs]</a>    <span class="k">def</span> <span class="nf">solar_system</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Schließt als erstes das Menü-Fenster und ruft anschließend Solarsystem auf</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">Solarsystem</span><span class="p">()</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Splashscreen.main"><a class="viewcode-back" href="../splashscreen.html#splashscreen.Splashscreen.main">[docs]</a>    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Führt den Splashscreen aus</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solar_splashscreen</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Solarsystem by Özer&amp;Dolacek 29032015 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, coezer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
